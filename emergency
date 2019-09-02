@@ -26,6 +26,10 @@ ${ssh} mkdir -p /nix /tmp
 ${ssh} mount -t tmpfs tmpfs /tmp
 ${ssh} mkdir -p /tmp/work /tmp/nix
 
+# Install rsync
+${ssh} "apt-get update -q || apt-get update -q || echo 'apt-get update failed twice but continuing anyway'"
+${ssh} "env DEBIAN_FRONTEND=noninteractive apt-get --quiet --assume-yes --no-install-recommends install rsync"
+
 # Copy and extract
 rsync -P result/tarball/*.xz "${connectTo}:/tmp/emergency.tar.xz"
 ${ssh} tar xf /tmp/emergency.tar.xz -C /tmp

@@ -26,7 +26,7 @@
 
   # Kernel stuff
   hardware.enableRedistributableFirmware = true;
-  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "mptsas" "sd_mod" "sr_mod" "virtio_blk" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "ehci_pci" "ahci" "nvme" "virtio_pci" "mptsas" "sd_mod" "sr_mod" "virtio_blk" ];
 
   # Filesystems
   boot.supportedFilesystems = [ "vfat" "ext4" "xfs" "btrfs" ];

@@ -33,6 +33,8 @@ ${ssh} "env DEBIAN_FRONTEND=noninteractive apt-get --quiet --assume-yes --no-ins
 # Copy and extract
 rsync -P result/tarball/*.xz "${connectTo}:/tmp/emergency.tar.xz"
 ${ssh} tar xf /tmp/emergency.tar.xz -C /tmp
+# We may need an explicit modprobe for overlay to work
+${ssh} modprobe overlay
 # Overlay the second /nix
 ${ssh} mount -t overlay overlay -o lowerdir=/nix,upperdir=/tmp/nix,workdir=/tmp/work /nix
 # Here goes nothing

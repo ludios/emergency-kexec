@@ -29,7 +29,7 @@
   boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "mptsas" "sd_mod" "sr_mod" "virtio_blk" ];
 
   # Filesystems
-  boot.supportedFilesystems = [ "vfat" "ext4" "xfs" ];
+  boot.supportedFilesystems = [ "vfat" "ext4" "xfs" "btrfs" ];
 
   # Enable ssh
   systemd.services.sshd.wantedBy = mkForce [ "multi-user.target" ];
